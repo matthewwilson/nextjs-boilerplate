@@ -12,8 +12,8 @@ export default async function EdgePage() {
                 <p>Fetched at {new Date().toISOString()}</p>
             </div>
             <div className="p-4 flex flex-col items-center">
-                <Link href="/">Home Page</Link>
-                <Link href="/child-page">Child Page</Link>
+                <Link href="/" prefetch={false}>Home Page</Link>
+                <Link href="/child-page" prefetch={false}>Child Page</Link>
             </div>
         </main>
     )

@@ -10,8 +10,8 @@ export default async function ChildPage() {
                 <p>Fetched at {new Date().toISOString()}</p>
             </div>
             <div className="p-4 flex flex-col items-center">
-                <Link href="/">Home Page</Link>
-                <Link href="/edge-page">Edge Page</Link>
+                <Link href="/" prefetch={false}>Home Page</Link>
+                <Link href="/edge-page" prefetch={false}>Edge Page</Link>
             </div>
         </main>
     )

@@ -10,8 +10,8 @@ export default async function Home() {
         <p>Fetched at {new Date().toISOString()}</p>
       </div>
       <div className="p-4 flex flex-col items-center">
-        <Link href="/child-page">Child Page</Link>
-        <Link href="/edge-page">Edge Page</Link>
+        <Link href="/child-page" prefetch={false}>Child Page</Link>
+        <Link href="/edge-page" prefetch={false}>Edge Page</Link>
       </div>
     </main>
   )
