@@ -1,6 +1,7 @@
 import fetchRetry from "fetch-retry";
 
-export async function getCloudflareTimestamp(): Promise<string> {
+export async function getCloudflareTimestamp(delayInMs: number): Promise<string> {
+    await delay(delayInMs);
     const { signal } = new AbortController();
     const response = await fetchRetry((url, req) =>
         fetch(url, {
@@ -11,8 +12,6 @@ export async function getCloudflareTimestamp(): Promise<string> {
             }
         }),
     )("https://1.1.1.1/cdn-cgi/trace");
-
-    await delay(4000);
 
     return await parseTimestamp(response);
 }
