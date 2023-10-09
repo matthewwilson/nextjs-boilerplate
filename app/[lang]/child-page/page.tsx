@@ -1,5 +1,13 @@
-import {getCloudflareTimestamp} from "@/app/service";
+import {getCloudflareTimestamp} from "@/app/[lang]/service";
 import Link from "next/link";
+
+interface Params {
+    lang: "en-GB";
+}
+
+export function generateStaticParams(): Params[] {
+    return [{ lang: "en-GB" }];
+}
 
 export default async function ChildPage() {
     const timestamp = await getCloudflareTimestamp();

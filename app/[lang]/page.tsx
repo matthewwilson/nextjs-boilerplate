@@ -1,4 +1,4 @@
-import {getCloudflareTimestamp} from "@/app/service";
+import {getCloudflareTimestamp} from "@/app/[lang]/service";
 import Link from "next/link";
 
 export default async function Home() {
