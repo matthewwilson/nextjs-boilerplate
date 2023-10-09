@@ -7,6 +7,9 @@ export async function getCloudflareTimestamp(delayInMs: number): Promise<string>
         fetch(url, {
             ...req,
             signal,
+            headers: {
+              "x-venue-nonce": delayInMs.toString() + "-" + Math.random().toString(36).substring(7),
+            },
             next: {
                 tags: ["cloudflare"]
             }
