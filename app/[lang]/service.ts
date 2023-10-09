@@ -10,7 +10,13 @@ export async function getCloudflareTimestamp(): Promise<string> {
         }),
     )("https://1.1.1.1/cdn-cgi/trace");
 
+    await delay(4000);
+
     return await parseTimestamp(response);
+}
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
 }
 
 async function parseTimestamp(result: Response) {
