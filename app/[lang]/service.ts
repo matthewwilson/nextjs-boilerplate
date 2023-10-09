@@ -2,11 +2,11 @@ import fetchRetry from "fetch-retry";
 
 export async function getCloudflareTimestamp(delayInMs: number): Promise<string> {
     await delay(delayInMs);
-    const { signal } = new AbortController();
+    //const { signal } = new AbortController();
     const response = await fetchRetry((url, req) =>
         fetch(url, {
             ...req,
-            signal,
+            //signal,
             headers: {
               "x-venue-nonce": delayInMs.toString() + "-" + Math.random().toString(36).substring(7),
             },
