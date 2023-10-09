@@ -1,9 +1,11 @@
 import fetchRetry from "fetch-retry";
 
 export async function getCloudflareTimestamp(): Promise<string> {
+    const { signal } = new AbortController();
     const response = await fetchRetry((url, req) =>
         fetch(url, {
             ...req,
+            signal,
             next: {
                 tags: ["cloudflare"]
             }
