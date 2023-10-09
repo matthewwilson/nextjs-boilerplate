@@ -8,7 +8,7 @@ export default async function EdgePage() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <h1 className="text-4xl font-bold text-center">{timestamp}</h1>
-            <p>Child Page Fetched at {new Date().toISOString()}</p>
+            <p>Edge Page Fetched at {new Date().toISOString()}</p>
             <Link href="/">Home Page</Link>
             <Link href="/child-page">Child Page</Link>
         </main>
