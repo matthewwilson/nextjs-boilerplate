@@ -3,7 +3,6 @@ import {NextRequest, NextResponse} from "next/server";
 const supportedLanguages: string[] = ["en-GB"];
 
 export function middleware(request: NextRequest): NextResponse {
-    console.log("middleware");
     const url = request.nextUrl.clone();
     const pathname = request.nextUrl.pathname;
     const pathnameIsMissingLocale = supportedLanguages.every(
@@ -31,7 +30,7 @@ function removeLeadingAndTrailingSlashes(path: string): string {
 export const config = {
     matcher: [
         // Skip all internal paths (_next)
-        "/((?!api|_next/static|_next/image|favicon|sitemap.xml|en-GB).*)",
+        "/((?!api|_next/static|_next/image|favicon|sitemap.xml).*)",
         {source: "/"},
         // Optional: only run on root (/) URL
         // '/'
