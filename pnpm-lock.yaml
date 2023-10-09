@@ -23,6 +23,9 @@ dependencies:
   eslint-config-next:
     specifier: ^13.5.4
     version: 13.5.4(eslint@8.47.0)(typescript@5.2.2)
+  fetch-retry:
+    specifier: ^5.0.6
+    version: 5.0.6
   next:
     specifier: ^13.5.4
     version: 13.5.4(react-dom@18.2.0)(react@18.2.0)
@@ -1159,6 +1162,10 @@ packages:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
     dependencies:
       reusify: 1.0.4
+    dev: false
+
+  /fetch-retry@5.0.6:
+    resolution: {integrity: sha512-3yurQZ2hD9VISAhJJP9bpYFNQrHHBXE2JxxjY5aLEcDi46RmAzJE2OC9FAde0yis5ElW0jTTzs0zfg/Cca4XqQ==}
     dev: false
 
   /file-entry-cache@6.0.1:

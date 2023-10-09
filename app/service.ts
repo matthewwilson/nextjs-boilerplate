@@ -1,11 +1,16 @@
-export async function getCloudflareTimestamp(): Promise<string> {
-    const result = await fetch("https://1.1.1.1/cdn-cgi/trace", {
-        next: {
-            tags: ["cloudflare"]
-        }
-    });
+import fetchRetry from "fetch-retry";
 
-    return await parseTimestamp(result);
+export async function getCloudflareTimestamp(): Promise<string> {
+    const response = await fetchRetry((url, req) =>
+        fetch(url, {
+            ...req,
+            next: {
+                tags: ["cloudflare"]
+            }
+        }),
+    )("https://1.1.1.1/cdn-cgi/trace");
+
+    return await parseTimestamp(response);
 }
 
 async function parseTimestamp(result: Response) {
