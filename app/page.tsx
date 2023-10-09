@@ -8,6 +8,7 @@ export default async function Home() {
       <h1 className="text-4xl font-bold text-center">{timestamp}</h1>
       <p>Fetched at {new Date().toISOString()}</p>
       <Link href="/child-page">Child Page</Link>
+      <Link href="/edge-page">Edge Page</Link>
     </main>
   )
 }
