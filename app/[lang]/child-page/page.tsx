@@ -19,7 +19,6 @@ export default async function ChildPage() {
             </div>
             <div className="p-4 flex flex-col items-center">
                 <Link href="/" prefetch={false}>Home Page</Link>
-                <Link href="/edge-page" prefetch={false}>Edge Page</Link>
             </div>
         </main>
     )

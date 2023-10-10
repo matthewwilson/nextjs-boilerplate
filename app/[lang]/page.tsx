@@ -11,7 +11,6 @@ export default async function Home() {
       </div>
       <div className="p-4 flex flex-col items-center">
         <Link href="/child-page" prefetch={false}>Child Page</Link>
-        <Link href="/edge-page" prefetch={false}>Edge Page</Link>
       </div>
     </main>
   )
