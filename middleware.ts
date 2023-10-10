@@ -2,8 +2,7 @@ import {NextRequest, NextResponse} from "next/server";
 
 const supportedLanguages: string[] = ["en-GB"];
 
-export function middleware(request: NextRequest) {
-    const url = request.nextUrl.clone();
+export function middleware(request: NextRequest): NextResponse {
     const pathname = request.nextUrl.pathname;
 
     console.log("Pathname", pathname);
@@ -15,9 +14,13 @@ export function middleware(request: NextRequest) {
     if (pathnameIsMissingLocale) {
         console.log("Redirecting to default locale");
         const locale = "en-GB"
-        url.pathname = buildUrlPath(request, locale);
+        const path = buildUrlPath(request, locale);
+        const url = new URL(path, request.url);
         return NextResponse.redirect(url, 308);
     }
+
+    console.log("Skipping redirect");
+    return NextResponse.next();
 }
 
 function buildUrlPath(request: NextRequest, locale: string): string {
