@@ -21,7 +21,7 @@ export function middleware(request: NextRequest) {
 
     // const next =  NextResponse.next();
     // console.log("Next", next);
-    return undefined;
+    //return undefined;
 }
 
 function buildUrlPath(request: NextRequest, locale: string): string {
