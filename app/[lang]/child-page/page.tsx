@@ -10,7 +10,7 @@ export function generateStaticParams(): Params[] {
 }
 
 export default async function ChildPage() {
-    const timestamp = await getCloudflareTimestamp(5000);
+    const timestamp = await getCloudflareTimestamp(4000);
     return (
         <main className="flex flex-col items-center justify-between p-24">
             <div className="p-4">
