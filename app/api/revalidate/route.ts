@@ -9,8 +9,7 @@ export async function POST(request: NextRequest) {
     }
 
     console.log("revalidating cloudflare tag");
-    revalidateTag("cloudflare-serverless");
-    revalidateTag("cloudflare-edge");
+    revalidateTag("cloudflare");
 
     return new NextResponse(JSON.stringify({ revalidated: true, now: Date.now()}));
 }
