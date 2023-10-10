@@ -1,12 +1,12 @@
 import fetchRetry from "fetch-retry";
 
-export async function getCloudflareTimestamp(delayInMs: number, runtime: "edge" | "serverless"): Promise<string> {
+export async function getCloudflareTimestamp(delayInMs: number): Promise<string> {
     await delay(delayInMs);
     const response = await fetchRetry((url, req) =>
         fetch(url, {
             ...req,
             next: {
-                tags: [`cloudflare-${runtime}`]
+                tags: ["cloudflare"]
             }
         }),
     )("https://1.1.1.1/cdn-cgi/trace");

@@ -2,7 +2,7 @@ import {getCloudflareTimestamp} from "@/app/[lang]/service";
 import Link from "next/link";
 
 export default async function Home() {
-  const timestamp = await getCloudflareTimestamp(100, "serverless");
+  const timestamp = await getCloudflareTimestamp(100);
   return (
     <main className="flex flex-col items-center justify-between p-24">
       <div className="p-4">
