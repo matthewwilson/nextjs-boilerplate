@@ -2,7 +2,6 @@ import {getCloudflareTimestamp} from "@/app/[lang]/service";
 import Link from "next/link";
 
 export const runtime = "edge";
-export const fetchCache = "force-no-store";
 
 export default async function EdgePage() {
     const timestamp = await getCloudflareTimestamp(3000);
