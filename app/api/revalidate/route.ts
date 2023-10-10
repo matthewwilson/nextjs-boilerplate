@@ -1,8 +1,6 @@
 import {NextRequest, NextResponse} from 'next/server'
 import { revalidateTag } from 'next/cache'
 
-export const runtime = "edge";
-
 export async function POST(request: NextRequest) {
     const secret = request.nextUrl.searchParams.get('secret')
 
@@ -11,7 +9,8 @@ export async function POST(request: NextRequest) {
     }
 
     console.log("revalidating cloudflare tag");
-    revalidateTag("cloudflare");
+    revalidateTag("cloudflare-serverless");
+    revalidateTag("cloudflare-edge");
 
     return new NextResponse(JSON.stringify({ revalidated: true, now: Date.now()}));
 }
