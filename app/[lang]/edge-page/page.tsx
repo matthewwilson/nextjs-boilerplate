@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const runtime = "edge";
+//export const runtime = "edge";
 
 export default async function EdgePage() {
     const timestamp = "hello world";
