@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { getCloudflareTimestamp } from "../service";
 
 export const runtime = "edge";
 
 export default async function EdgePage() {
-    const timestamp = "hello world";
+    const timestamp = await getCloudflareTimestamp(3000);
     return (
         <main className="flex flex-col items-center justify-between p-24">
             <div className="p-4">
