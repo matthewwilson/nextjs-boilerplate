@@ -1,6 +1,8 @@
 import {getCloudflareTimestamp} from "@/app/[lang]/service";
 import Link from "next/link";
 
+export const dynamic = "force-static";
+
 export default async function Home() {
   const timestamp = await getCloudflareTimestamp(100, "home");
   return (

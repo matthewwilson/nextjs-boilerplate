@@ -1,6 +1,8 @@
 import {getCloudflareTimestamp} from "@/app/[lang]/service";
 import Link from "next/link";
 
+export const dynamic = "force-static";
+
 interface Params {
     lang: "en-GB";
 }

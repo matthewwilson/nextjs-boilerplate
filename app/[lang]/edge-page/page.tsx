@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCloudflareTimestamp } from "../service";
 
+export const dynamic = "force-dynamic";
 export const runtime = "edge";
 
 export default async function EdgePage() {
