@@ -6,9 +6,6 @@ export function middleware(request: NextRequest): NextResponse {
     const url = request.nextUrl.clone();
     const pathname = request.nextUrl.pathname;
 
-    console.log("Middleware URL", url);
-    console.log("Pathname", pathname);
-
     const pathnameIsMissingLocale = supportedLanguages.every(
         (language) => !pathname.startsWith(`/${language}/`) && pathname !== `/${language}`,
     );
