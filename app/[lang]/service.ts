@@ -1,12 +1,14 @@
 import fetchRetry from "fetch-retry";
 
 export async function getCloudflareTimestamp(delayInMs: number): Promise<string> {
+    const tagPrefix = process.env.VERCEL_GIT_COMMIT_SHA ?? "";
+
     await delay(delayInMs);
     const response = await fetchRetry((url, req) =>
         fetch(url, {
             ...req,
             next: {
-                tags: ["cloudflare"]
+                tags: [`${tagPrefix}:cloudflare`]
             }
         }),
     )("https://1.1.1.1/cdn-cgi/trace");

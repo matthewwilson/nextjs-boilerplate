@@ -8,8 +8,10 @@ export async function POST(request: NextRequest) {
         new NextResponse(JSON.stringify({ message: "invalid secret" }), { status: 401 });
     }
 
+    const tagPrefix = process.env.VERCEL_GIT_COMMIT_SHA ?? "";
+
     console.log("revalidating cloudflare tag");
-    revalidateTag("cloudflare");
+    revalidateTag(`${tagPrefix}:cloudflare`);
 
     return new NextResponse(JSON.stringify({ revalidated: true, now: Date.now()}));
 }
