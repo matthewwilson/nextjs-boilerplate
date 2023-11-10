@@ -4,11 +4,10 @@ export async function getCloudflareTimestamp(delayInMs: number, page: "home" | "
     const tagPrefix = process.env.VERCEL_GIT_COMMIT_SHA ?? "";
 
     await delay(delayInMs);
-    const { signal } = new AbortController()
+
     const response = await fetchRetry((url, req) =>
         fetch(url, {
             ...req,
-            signal,
             next: {
                 tags: [`${tagPrefix}:cloudflare`]
             }
